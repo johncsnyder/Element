@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Element - Element.jl</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Element.jl</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Index</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Element</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/johncsnyder/Element.jl">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#element">Element</a></li>
+        
+            <li><a href="#setpositionatelementatom-rtuplefloat64-float64-float64">setposition(at::Element.Atom,  R::Tuple{Float64, Float64, Float64}) ¶</a></li>
+        
+            <li><a href="#elementatom">Element.Atom ¶</a></li>
+        
+            <li><a href="#elementmolecule">Element.Molecule ¶</a></li>
+        
+            <li><a href="#elementmultipolefunct">Element.MultipoleFunc{T} ¶</a></li>
+        
+            <li><a href="#elementradialfunct">Element.RadialFunc{T} ¶</a></li>
+        
+            <li><a href="#analytic_continuationrabstractarrayt-1-fabstractarrayt-1-gfunction">analytic_continuation!(r::AbstractArray{T, 1},  f::AbstractArray{T, 1},  g::Function) ¶</a></li>
+        
+            <li><a href="#analytic_continuationr-f-g">analytic_continuation(r,  f,  g) ¶</a></li>
+        
+            <li><a href="#analytic_continuation_coulomb_nucleirabstractarrayfloat64-1-fabstractarrayfloat64-2-labstractarrayint64-1">analytic_continuation_coulomb_nuclei!(r::AbstractArray{Float64, 1},  f::AbstractArray{Float64, 2},  l::AbstractArray{Int64, 1}) ¶</a></li>
+        
+            <li><a href="#deepcopyatelementatom-rtuplefloat64-float64-float64">deepcopy(at::Element.Atom,  R::Tuple{Float64, Float64, Float64}) ¶</a></li>
+        
+            <li><a href="#eiguarrayfloat64-1-varrayarrayfloat64-1-1-aefunction-dxfloat64-qmininteger-qmaxinteger">eig!(u::Array{Float64, 1},  v::Array{Array{Float64, 1}, 1},  aE::Function,  dx::Float64,  qmin::Integer,  qmax::Integer) ¶</a></li>
+        
+            <li><a href="#eigaefunction-dxfloat64-qmininteger-qmaxinteger">eig(aE::Function,  dx::Float64,  qmin::Integer,  qmax::Integer) ¶</a></li>
+        
+            <li><a href="#enumeratelmlmax">enumeratelm(lmax) ¶</a></li>
+        
+            <li><a href="#findstepsiarraytuplefloat64-float64-1-ffunction-xlfloat64-xrfloat64-fminint64-fmaxint64">findsteps!(I::Array{Tuple{Float64, Float64}, 1},  f::Function,  xl::Float64,  xr::Float64,  fmin::Int64,  fmax::Int64) ¶</a></li>
+        
+            <li><a href="#findstepsffunction-xlfloat64-xrfloat64">findsteps(f::Function,  xl::Float64,  xr::Float64) ¶</a></li>
+        
+            <li><a href="#fzerof-x1float64-x2float64-args">fzero(f,  x1::Float64,  x2::Float64,  args...) ¶</a></li>
+        
+            <li><a href="#genoh_a00v">genOh_a00(v) ¶</a></li>
+        
+            <li><a href="#multipolemomentr-rho-l">multipolemoment(r,  rho,  l) ¶</a></li>
+        
+            <li><a href="#multistep_integratoryabstractarrayfloat64-1-aabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator!(y::AbstractArray{Float64, 1},  a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) ¶</a></li>
+        
+            <li><a href="#multistep_integratoraabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator(a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) ¶</a></li>
+        
+            <li><a href="#multistep_integrator_endpointyabstractarrayfloat64-1-aabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator_endpoint(y::AbstractArray{Float64, 1},  a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) ¶</a></li>
+        
+            <li><a href="#multistep_integrator_node_countyabstractarrayfloat64-1-aabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator_node_count(y::AbstractArray{Float64, 1},  a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) ¶</a></li>
+        
+            <li><a href="#multistep_rulea_jm1float64-a_jfloat64-a_jp1float64-y_jm1float64-y_jfloat64-hfloat64">multistep_rule(a_jm1::Float64,  a_j::Float64,  a_jp1::Float64,  y_jm1::Float64,  y_j::Float64,  h::Float64) ¶</a></li>
+        
+            <li><a href="#radpoissonrelementlogarithmicgridt-aabstractarrayt-1-rhoabstractarrayt-1-lint64">radpoisson(r::Element.LogarithmicGrid{T, A&lt;:AbstractArray{T, 1}},  rho::AbstractArray{T, 1},  l::Int64) ¶</a></li>
+        
+            <li><a href="#radschrodrelementlogarithmicgridfloat64-aabstractarrayt-1-vabstractarrayfloat64-1-nmaxint64-lmaxint64">radschrod(r::Element.LogarithmicGrid{Float64, A&lt;:AbstractArray{T, 1}},  v::AbstractArray{Float64, 1},  nmax::Int64,  lmax::Int64) ¶</a></li>
+        
+            <li><a href="#radschrod1relementuniformgridfloat64-aabstractarrayt-1-vabstractarrayfloat64-1-nint64-lint64">radschrod1(r::Element.UniformGrid{Float64, A&lt;:AbstractArray{T, 1}},  v::AbstractArray{Float64, 1},  n::Int64,  l::Int64) ¶</a></li>
+        
+            <li><a href="#realsphharmlint64-mint64-real-real">realsphharm(l::Int64,  m::Int64,  θ::Real,  ϕ::Real) ¶</a></li>
+        
+            <li><a href="#sphharmlint64-mint64-real-real">sphharm(l::Int64,  m::Int64,  θ::Real,  ϕ::Real) ¶</a></li>
+        
+            <li><a href="#splineradialatelementatom">splineradial!(at::Element.Atom) ¶</a></li>
+        
+            <li><a href="#elementcoulombpotential">Element.CoulombPotential ¶</a></li>
+        
+            <li><a href="#elementldaxc">Element.ldaxc ¶</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="element">Element</h1>
+<hr />
+<p><a id="method__setposition.1" class="lexicon_definition"></a></p>
+<h4 id="setpositionatelementatom-rtuplefloat64-float64-float64">setposition(at::Element.Atom,  R::Tuple{Float64, Float64, Float64}) <a href="#method__setposition.1">¶</a></h4>
+<p><code>setposition(at,R)</code></p>
+<p>sets the position of atom <code>at</code> to <code>R</code></p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/atom.jl#L109">Element/src/atom.jl:109</a></p>
+<hr />
+<p><a id="type__atom.1" class="lexicon_definition"></a></p>
+<h4 id="elementatom">Element.Atom <a href="#type__atom.1">¶</a></h4>
+<p><code>Atom(Z; R=(0.,0.,0.), params...)</code></p>
+<p>creates an atom at <code>R</code> with nuclear charge <code>Z</code>,
+with any additional parameters <code>params</code>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/atom.jl#L10">Element/src/atom.jl:10</a></p>
+<hr />
+<p><a id="type__molecule.1" class="lexicon_definition"></a></p>
+<h4 id="elementmolecule">Element.Molecule <a href="#type__molecule.1">¶</a></h4>
+<p><code>Molecule(; atoms=[], params...)</code></p>
+<p>creates an molecules with <code>atoms</code>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/molecule.jl#L9">Element/src/molecule.jl:9</a></p>
+<hr />
+<p><a id="type__multipolefunc.1" class="lexicon_definition"></a></p>
+<h4 id="elementmultipolefunct">Element.MultipoleFunc{T} <a href="#type__multipolefunc.1">¶</a></h4>
+<p>Multipole function </p>
+<p>
+<script type="math/tex">f_{lm}(r,\theta,\phi) = u(r) Y_{lm}(\theta,\phi)</script>,</p>
+<p>where <script type="math/tex">u(r)</script> is a user-defined radial function.</p>
+<p>If <script type="math/tex">r_{cut}<r<r_{max}</script>, then the long-range analytical
+form <script type="math/tex">q Y_{lm}(\theta,\phi)/r^{l+1}</script> is used, where
+<code>q</code> is the multipole moment.</p>
+<p>The function vanishes for <script type="math/tex">r>r_{max}</script>.</p>
+<p>f = MultipoleFunc(u; l=0, m=0, R=(0.,0.,0.), rcut=Inf, rmax=Inf, q=0.)</p>
+<p><code>u</code> - a user-defined radial function</p>
+<p>e.g.</p>
+<div class="codehilite"><pre>u = r -&gt; exp(-r^2)
+u = Spline1D(r, exp(-r.^2))
+</pre></div>
+
+
+<p><code>l</code>,<code>m</code> - angular quantum numbers</p>
+<p><code>R</code> - origin of spherical coordinate system</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/multipole.jl#L32">Element/src/multipole.jl:32</a></p>
+<hr />
+<p><a id="type__radialfunc.1" class="lexicon_definition"></a></p>
+<h4 id="elementradialfunct">Element.RadialFunc{T} <a href="#type__radialfunc.1">¶</a></h4>
+<p>Spherically symmetric function </p>
+<p>
+<script type="math/tex">f(r,\theta,\phi) = u(r)</script>
+</p>
+<p>where <script type="math/tex">u(r)</script> is a user-defined radial function.</p>
+<p>The function vanishes for <script type="math/tex">r>r_{max}</script>.</p>
+<p>f = RadialFunc(u; R=(0.,0.,0.), rmax=Inf)</p>
+<p><code>u</code> - a user-defined radial function</p>
+<p><code>R</code> - origin of spherical coordinate system</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radialfunc.jl#L19">Element/src/radialfunc.jl:19</a></p>
+<hr />
+<p><a id="method__analytic_continuation.1" class="lexicon_definition"></a></p>
+<h4 id="analytic_continuationrabstractarrayt-1-fabstractarrayt-1-gfunction">analytic_continuation!(r::AbstractArray{T, 1},  f::AbstractArray{T, 1},  g::Function) <a href="#method__analytic_continuation.1">¶</a></h4>
+<p><code>analytic_continuation!(r,f,g)</code></p>
+<p>same as <code>analytic_continuation</code> but mutates <code>f</code>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L152">Element/src/radschrod.jl:152</a></p>
+<hr />
+<p><a id="method__analytic_continuation.2" class="lexicon_definition"></a></p>
+<h4 id="analytic_continuationr-f-g">analytic_continuation(r,  f,  g) <a href="#method__analytic_continuation.2">¶</a></h4>
+<p><code>analytic_continuation(r,f,g)</code></p>
+<p>smoothly replaces <script type="math/tex">f(r)</script> with the analytic form given by <script type="math/tex">g(r)</script> as <script type="math/tex">r\to 0</script>
+</p>
+<p>the transition point is determined as the point where 
+the derivatives of <code>f</code> and <code>g</code> match.</p>
+<p>analytic continuation as <script type="math/tex">r\to\infty</script> can be acheived by reversing
+<code>r</code> and <code>f</code>.</p>
+<p>e.g.</p>
+<div class="codehilite"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mf">4.</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span><span class="n">l</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">ev</span><span class="p">,</span><span class="n">ef</span> <span class="o">=</span> <span class="n">radschrod1</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">efc</span> <span class="o">=</span> <span class="n">analytic_continuation</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">ef</span><span class="p">,</span><span class="n">r</span> <span class="o">-&gt;</span> <span class="n">r</span><span class="o">.^</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L180">Element/src/radschrod.jl:180</a></p>
+<hr />
+<p><a id="method__analytic_continuation_coulomb_nuclei.1" class="lexicon_definition"></a></p>
+<h4 id="analytic_continuation_coulomb_nucleirabstractarrayfloat64-1-fabstractarrayfloat64-2-labstractarrayint64-1">analytic_continuation_coulomb_nuclei!(r::AbstractArray{Float64, 1},  f::AbstractArray{Float64, 2},  l::AbstractArray{Int64, 1}) <a href="#method__analytic_continuation_coulomb_nuclei.1">¶</a></h4>
+<p><code>analytic_continuation_coulomb_nuclei!(r,f,l)</code></p>
+<p>analytically continues multiple functions <script type="math/tex">f(r)</script>  (columns of <code>f</code>) with
+the analytic form <script type="math/tex">r^{l+1}</script> as <script type="math/tex">r\to 0</script>.</p>
+<p><code>f</code> - a matrix whose columns are functions of <code>r</code></p>
+<p><code>l</code> - corresponding <code>l</code>-quantum numbers</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L198">Element/src/radschrod.jl:198</a></p>
+<hr />
+<p><a id="method__deepcopy.1" class="lexicon_definition"></a></p>
+<h4 id="deepcopyatelementatom-rtuplefloat64-float64-float64">deepcopy(at::Element.Atom,  R::Tuple{Float64, Float64, Float64}) <a href="#method__deepcopy.1">¶</a></h4>
+<p><code>deepcopy(at,R)</code></p>
+<p>returns a copy of <code>at</code> at the position <code>R</code></p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/atom.jl#L131">Element/src/atom.jl:131</a></p>
+<hr />
+<p><a id="method__eig.1" class="lexicon_definition"></a></p>
+<h4 id="eiguarrayfloat64-1-varrayarrayfloat64-1-1-aefunction-dxfloat64-qmininteger-qmaxinteger">eig!(u::Array{Float64, 1},  v::Array{Array{Float64, 1}, 1},  aE::Function,  dx::Float64,  qmin::Integer,  qmax::Integer) <a href="#method__eig.1">¶</a></h4>
+<p><code>eig!(u,v,aE,dx,qmin,qmax;Emin=0.0,Emax=1.0,Elim=10000.)</code></p>
+<p>same as <code>eig</code> except that the eigenvalues and eigenfunctions are appended to <code>u</code> 
+and <code>v</code>, respectively.</p>
+<p>returns <code>q</code>, the number of nodes in the eigenfunctions.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L174">Element/src/eig.jl:174</a></p>
+<hr />
+<p><a id="method__eig.2" class="lexicon_definition"></a></p>
+<h4 id="eigaefunction-dxfloat64-qmininteger-qmaxinteger">eig(aE::Function,  dx::Float64,  qmin::Integer,  qmax::Integer) <a href="#method__eig.2">¶</a></h4>
+<p><code>eig(aE,dx,qmin,qmax;Emin=0.0,Emax=1.0,Elim=10000.)</code></p>
+<p>solves the eigenvalue equation </p>
+<p>
+<script type="math/tex">y''(x) + a_E(x) y(x) = 0</script>
+</p>
+<p>via the shooting method and Numerov's multistep integrator (see <code>multistep_integrator</code>),
+on a uniform grid <script type="math/tex">[x_1, \dots, x_n]</script> with spacing <code>dx</code>
+and boundary conditions <script type="math/tex">y(x_1) = 0</script> and <script type="math/tex">y(x_n) = 0</script>,</p>
+<p><code>aE</code> - the function <script type="math/tex">a_E(x)</script>, which returns a vector <script type="math/tex">[a_E(x_1), \dots, a_E(x_n)]</script>
+for a given value of <code>E</code>.</p>
+<p><code>qmin,qmax</code> - solve for eigenfunctions with <code>qmin &lt; q &lt; qmax</code> nodes.</p>
+<p><code>Emin,Emax</code> - initial <code>E</code> interval to search. this will be expanded automatically
+ (up to <code>±Elim</code>) until the range includes all requested eigenvalues.</p>
+<p>returns <code>(u,v,q)</code></p>
+<p>where <code>u</code> are the eigenvalues, <code>v</code> are the eigenfunctions (the jth
+eigenfunction given by <code>v[:,j]</code>), and <code>q</code> are the respective number of nodes in
+the eigenfunctions.</p>
+<p>e.g. <em>particle in a box</em></p>
+<div class="codehilite"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">lingrid</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">evs</span><span class="p">,</span><span class="n">efs</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">E</span> <span class="o">-&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">E</span><span class="o">-</span><span class="n">v</span><span class="p">),</span><span class="n">dx</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L146">Element/src/eig.jl:146</a></p>
+<hr />
+<p><a id="method__enumeratelm.1" class="lexicon_definition"></a></p>
+<h4 id="enumeratelmlmax">enumeratelm(lmax) <a href="#method__enumeratelm.1">¶</a></h4>
+<p><code>enumeratelm(lmax)</code> lists all pairs <code>(l,m)</code> for <code>l=0,...,lmax</code> and <code>m=-l,...,l</code>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/multipole.jl#L65">Element/src/multipole.jl:65</a></p>
+<hr />
+<p><a id="method__findsteps.1" class="lexicon_definition"></a></p>
+<h4 id="findstepsiarraytuplefloat64-float64-1-ffunction-xlfloat64-xrfloat64-fminint64-fmaxint64">findsteps!(I::Array{Tuple{Float64, Float64}, 1},  f::Function,  xl::Float64,  xr::Float64,  fmin::Int64,  fmax::Int64) <a href="#method__findsteps.1">¶</a></h4>
+<p><code>findsteps!(I,f,xl,xr,[fmin,fmax];args=())</code> </p>
+<p>like <code>findsteps</code> except that the intervals <script type="math/tex">(x_l,x_r)</script> are appended to <code>I</code>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/findsteps.jl#L35">Element/src/findsteps.jl:35</a></p>
+<hr />
+<p><a id="method__findsteps.2" class="lexicon_definition"></a></p>
+<h4 id="findstepsffunction-xlfloat64-xrfloat64">findsteps(f::Function,  xl::Float64,  xr::Float64) <a href="#method__findsteps.2">¶</a></h4>
+<p><code>findsteps(f,xl,xr,[fmin,fmax];args=())</code> </p>
+<p>takes a function <code>f(x,args...)</code>, assumed to be a
+monotonically increasing integer function of <code>x</code>.</p>
+<p>optionally one can specify the range of <code>f</code> to search 
+with <code>fmin</code>, <code>fmax</code></p>
+<p>performs a binary search and returns an ordered list of 
+intervals <script type="math/tex">[(x_{l,1},x_{r,1}),(x_{l,2},x_{r,2}),\dots]</script>
+within the specificed range <code>(xl,xr)</code> which contains exactly one step.</p>
+<p>e.g.</p>
+<div class="codehilite"><pre><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">round</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+<span class="n">findsteps</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/findsteps.jl#L69">Element/src/findsteps.jl:69</a></p>
+<hr />
+<p><a id="method__fzero.1" class="lexicon_definition"></a></p>
+<h4 id="fzerof-x1float64-x2float64-args">fzero(f,  x1::Float64,  x2::Float64,  args...) <a href="#method__fzero.1">¶</a></h4>
+<p><code>fzero(f,x1,x2,args...;tol=1e-12,maxsteps=100)</code></p>
+<p>finds the root <script type="math/tex">x_0</script> of <script type="math/tex">f(x)</script> in the interval <script type="math/tex">[x_1,x_2]</script>, such that
+<script type="math/tex">f(x_0) = 0</script> (up to specified tolerance <code>tol</code>).</p>
+<p><code>f</code> - a function f(x,args...) that returns Float64, where extra parameters 
+may be passed through to <code>f</code>.</p>
+<p>throws an error if <script type="math/tex">f(x_1)</script> and <script type="math/tex">f(x_2)</script> have the same sign, or 
+if more than <code>maxsteps</code> iterations are taken.</p>
+<p>uses the Dekker-Brent method (see <code>Numerical Recipes in C</code>, p. 361).</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/fzero.jl#L17">Element/src/fzero.jl:17</a></p>
+<hr />
+<p><a id="method__genoh_a00.1" class="lexicon_definition"></a></p>
+<h4 id="genoh_a00v">genOh_a00(v) <a href="#method__genoh_a00.1">¶</a></h4>
+<p>C version: Dmitri Laikov
+ F77 version: Christoph van Wuellen, http://www.ccl.net
+ Python version: Richard P. Muller, 2002.
+ Julia version: John C. Snyder, 2015.</p>
+<p>This subroutine is part of a set of subroutines that generate
+ Lebedev grids [1-6] for integration on a sphere. The original 
+ C-code [1] was kindly provided by Dr. Dmitri N. Laikov and 
+ translated into fortran by Dr. Christoph van Wuellen.
+ This subroutine was translated from C to fortran77 by hand.</p>
+<p>Users of this code are asked to include reference [1] in their
+ publications, and in the user- and programmers-manuals 
+ describing their codes.</p>
+<p>[1] V.I. Lebedev, and D.N. Laikov
+       'A quadrature formula for the sphere of the 131st
+        algebraic order of accuracy'
+       Doklady Mathematics, Vol. 59, No. 3, 1999, pp. 477-481.</p>
+<p>[2] V.I. Lebedev
+       'A quadrature formula for the sphere of 59th algebraic
+        order of accuracy'
+       Russian Acad. Sci. Dokl. Math., Vol. 50, 1995, pp. 283-286. </p>
+<p>[3] V.I. Lebedev, and A.L. Skorokhodov
+       'Quadrature formulas of orders 41, 47, and 53 for the sphere'
+       Russian Acad. Sci. Dokl. Math., Vol. 45, 1992, pp. 587-592. </p>
+<p>[4] V.I. Lebedev
+       'Spherical quadrature formulas exact to orders 25-29'
+       Siberian Mathematical Journal, Vol. 18, 1977, pp. 99-107. </p>
+<p>[5] V.I. Lebedev
+       'Quadratures on a sphere'
+       Computational Mathematics and Mathematical Physics, Vol. 16,
+       1976, pp. 10-24. </p>
+<p>[6] V.I. Lebedev
+       'Values of the nodes and weights of ninth to seventeenth 
+        order Gauss-Markov quadrature formulae invariant under the 
+        octahedron group with inversion'
+       Computational Mathematics and Mathematical Physics, Vol. 15,
+       1975, pp. 44-51.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/lebedev.jl#L49">Element/src/lebedev.jl:49</a></p>
+<hr />
+<p><a id="method__multipolemoment.1" class="lexicon_definition"></a></p>
+<h4 id="multipolemomentr-rho-l">multipolemoment(r,  rho,  l) <a href="#method__multipolemoment.1">¶</a></h4>
+<p><code>multipolemoment(r,rho,l)</code></p>
+<p>computes the multipole moment of radial density <code>rho</code> in
+the <code>l</code>-angular momentum channel</p>
+<p>
+<script type="math/tex">q = \int dr\, r^{l+2} \rho_{lm}(r)</script>.</p>
+<p><code>r</code> (LogarithmicGrid) - logarithmic grid (<code>loggrid</code>)</p>
+<p><code>rho</code> (AbstractVector) - radial density <script type="math/tex">\rho_{lm}(r)</script> evaluated on <code>r</code> </p>
+<p><code>l</code> (Int) - l-quantum number</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radpoisson.jl#L70">Element/src/radpoisson.jl:70</a></p>
+<hr />
+<p><a id="method__multistep_integrator.1" class="lexicon_definition"></a></p>
+<h4 id="multistep_integratoryabstractarrayfloat64-1-aabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator!(y::AbstractArray{Float64, 1},  a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) <a href="#method__multistep_integrator.1">¶</a></h4>
+<p><code>multistep_integrator!(y,a,h,y1,y2)</code> is the same as <code>multistep_integrator</code>,
+but overwrites <code>y</code>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L22">Element/src/eig.jl:22</a></p>
+<hr />
+<p><a id="method__multistep_integrator.2" class="lexicon_definition"></a></p>
+<h4 id="multistep_integratoraabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator(a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) <a href="#method__multistep_integrator.2">¶</a></h4>
+<p><code>multistep_integrator(a,h,y1,y2)</code> solves </p>
+<p>
+<script type="math/tex">y''(x) + a(x) y(x) = 0</script>
+</p>
+<p>on a uniform grid via the 4th order 
+<a href="https://en.wikipedia.org/wiki/Numerov%27s_method">Numerov's method</a>.</p>
+<p>Assuming a uniform grid <script type="math/tex">[x_1, \dots, x_n]</script> with spacing <code>h</code></p>
+<p><code>a</code> - discretization of <script type="math/tex">a(x)</script>, <script type="math/tex">[a(x_1), \dots, a(x_n)]</script>
+</p>
+<p><code>y1,y2</code> - initial boundary condition, specifying <script type="math/tex">y(x_1)</script> and <script type="math/tex">y(x_2)</script>
+</p>
+<p>Returns the solution <script type="math/tex">[y(x_1), \dots, y(x_n)]</script>.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L48">Element/src/eig.jl:48</a></p>
+<hr />
+<p><a id="method__multistep_integrator_endpoint.1" class="lexicon_definition"></a></p>
+<h4 id="multistep_integrator_endpointyabstractarrayfloat64-1-aabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator_endpoint(y::AbstractArray{Float64, 1},  a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) <a href="#method__multistep_integrator_endpoint.1">¶</a></h4>
+<p><code>multistep_integrator_endpoint(y,a,h,y1,y2)</code> </p>
+<p>is the same as <code>multistep_integrator</code>,
+but returns only <script type="math/tex">y(x_n)</script>. </p>
+<p><code>y</code> is used as temporary storage.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L63">Element/src/eig.jl:63</a></p>
+<hr />
+<p><a id="method__multistep_integrator_node_count.1" class="lexicon_definition"></a></p>
+<h4 id="multistep_integrator_node_countyabstractarrayfloat64-1-aabstractarrayfloat64-1-hfloat64-y1float64-y2float64">multistep_integrator_node_count(y::AbstractArray{Float64, 1},  a::AbstractArray{Float64, 1},  h::Float64,  y1::Float64,  y2::Float64) <a href="#method__multistep_integrator_node_count.1">¶</a></h4>
+<p><code>multistep_integrator_node_count(y,a,h,y1,y2)</code> </p>
+<p>is the same as <code>multistep_integrator</code>,
+but returns the number of nodes in <script type="math/tex">y(x)</script> (i.e. the number of sign changes). </p>
+<p><code>y</code> is used as temporary storage.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L78">Element/src/eig.jl:78</a></p>
+<hr />
+<p><a id="method__multistep_rule.1" class="lexicon_definition"></a></p>
+<h4 id="multistep_rulea_jm1float64-a_jfloat64-a_jp1float64-y_jm1float64-y_jfloat64-hfloat64">multistep_rule(a_jm1::Float64,  a_j::Float64,  a_jp1::Float64,  y_jm1::Float64,  y_j::Float64,  h::Float64) <a href="#method__multistep_rule.1">¶</a></h4>
+<p><code>multistep_rule(a_jm1,a_j,a_jp1,y_jm1,y_j,h)</code></p>
+<p>computes the multistep rule in Numerov's method:</p>
+<p>
+<script type="math/tex">y_{j+1} = { \left(2-5h^2 a_j/6\right)y_j - \left(1+h^2 a_{j-1}/12\right)y_{j-1} 
+    \over 1+h^2 a_{j+1}/12 }</script>
+</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L12">Element/src/eig.jl:12</a></p>
+<hr />
+<p><a id="method__radpoisson.1" class="lexicon_definition"></a></p>
+<h4 id="radpoissonrelementlogarithmicgridt-aabstractarrayt-1-rhoabstractarrayt-1-lint64">radpoisson(r::Element.LogarithmicGrid{T, A&lt;:AbstractArray{T, 1}},  rho::AbstractArray{T, 1},  l::Int64) <a href="#method__radpoisson.1">¶</a></h4>
+<p><code>radpoisson(r,rho,l)</code></p>
+<p>solves the poisson equation for a radial density <code>rho</code> in
+the <code>l</code>-angular momentum channel</p>
+<p>computes the hartree potential</p>
+<p>
+<script type="math/tex">v_{h,lm}(r) = \int_0^r dr_<\, r_<^2 g_l(r_<,r) \rho_{lm}(r_<) + 
+    \int_r^\infty dr_>\, r_>^2 g_l(r,r_>) \rho_{lm}(r_>)</script>,</p>
+<p>where <script type="math/tex">g_l(r_<,r_>) = r_<^l/r_>^{l+1}</script>
+</p>
+<p>uses a 3rd order adams-moulton multistep integrator to compute
+each integral</p>
+<p><code>r</code> (LogarithmicGrid) - logarithmic grid (<code>loggrid</code>)</p>
+<p><code>rho</code> (AbstractVector) - radial density <script type="math/tex">\rho_{lm}(r)</script> evaluated on <code>r</code> </p>
+<p><code>l</code> (Int) - l-quantum number</p>
+<p>e.g.</p>
+<div class="codehilite"><pre><span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="n">r</span><span class="p">)</span>
+<span class="n">vh</span> <span class="o">=</span> <span class="n">radpoisson</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">multipolemoment</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">vh</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="o">./</span><span class="n">r</span><span class="o">.^</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>  <span class="c"># asymptotic form of hartree potential</span>
+<span class="n">xlims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ylims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+
+
+<p>[<code>V. Blum et al., CPC 180 (2009)</code> p. 2185-2186]</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radpoisson.jl#L41">Element/src/radpoisson.jl:41</a></p>
+<hr />
+<p><a id="method__radschrod.1" class="lexicon_definition"></a></p>
+<h4 id="radschrodrelementlogarithmicgridfloat64-aabstractarrayt-1-vabstractarrayfloat64-1-nmaxint64-lmaxint64">radschrod(r::Element.LogarithmicGrid{Float64, A&lt;:AbstractArray{T, 1}},  v::AbstractArray{Float64, 1},  nmax::Int64,  lmax::Int64) <a href="#method__radschrod.1">¶</a></h4>
+<p><code>radschrod(r,v,nmax,lmax;reverse=false,Emin=-1.0,Emax=0.0,Elim=1e4)</code></p>
+<p>solves the radial Schrödinger equation</p>
+<p>
+<script type="math/tex">\left\{ -{1\over 2}{d^2\over dr^2} + {l(l+1)\over 2r^2} + v(r) \right\} u(r) = \epsilon u(r)</script>
+</p>
+<p>where <script type="math/tex">\varphi(r,\Omega) = {u(r)\over r} Y_l^m(\Omega)</script>.</p>
+<p>for all eigenvalues/eigenfunctions up to <code>nmax,lmax</code> (<code>nmax &gt; 0</code>, <code>lmax &gt;= 0</code> and <code>lmax &lt; nmax</code>).</p>
+<p>the eigenfunctions are normalized such that <script type="math/tex">\int dr\, u(r)^2 = 1</script>
+</p>
+<p><code>r</code> - logarithmic grid (see <code>loggrid</code>)</p>
+<p><code>v</code> - the radial potential <script type="math/tex">v(r)</script> evaluated on the grid <code>r</code></p>
+<p><code>reverse</code> - if true, integrate in reverse. </p>
+<p><code>Emin,Emax</code> - initial <code>E</code> interval to search. this will be expanded automatically
+ (up to <code>±Elim</code>) until the range includes all requested eigenvalues.</p>
+<p>returns <code>evs,efs,q</code>, the requested eigenvalues, eigenfunctions and a list of 
+the corresponding quantum numbers <code>n,l</code></p>
+<p>e.g. <em>hydrogenic atom, Z=1</em></p>
+<div class="codehilite"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">r</span>
+<span class="n">nmax</span><span class="p">,</span><span class="n">lmax</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">evs</span><span class="p">,</span><span class="n">efs</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">radschrod</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">nmax</span><span class="p">,</span><span class="n">lmax</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L113">Element/src/radschrod.jl:113</a></p>
+<hr />
+<p><a id="method__radschrod1.1" class="lexicon_definition"></a></p>
+<h4 id="radschrod1relementuniformgridfloat64-aabstractarrayt-1-vabstractarrayfloat64-1-nint64-lint64">radschrod1(r::Element.UniformGrid{Float64, A&lt;:AbstractArray{T, 1}},  v::AbstractArray{Float64, 1},  n::Int64,  l::Int64) <a href="#method__radschrod1.1">¶</a></h4>
+<p><code>radschrod1(r,v,n,l;reverse=false,Emin=-1.0,Emax=0.0,Elim=1e4)</code></p>
+<p>solves the radial Schrödinger equation</p>
+<p>
+<script type="math/tex">\left\{ -{1\over 2}{d^2\over dr^2} + {l(l+1)\over 2r^2} + v(r) \right\} u(r) = \epsilon u(r)</script>
+</p>
+<p>where <script type="math/tex">\varphi(r,\Omega) = {u(r)\over r} Y_l^m(\Omega)</script>.</p>
+<p>for a single eigenvalue/eigenfunction, specified by <code>n,l</code>. </p>
+<p>the eigenfunction is normalized such that <script type="math/tex">\int dr\, u(r)^2 = 1</script>
+</p>
+<p><code>r</code> - uniform grid (<code>lingrid</code>, <code>simpsgrid</code>) or logarithmic grid (<code>loggrid</code>)</p>
+<p><code>v</code> - the radial potential <script type="math/tex">v(r)</script> evaluated on the grid <code>r</code></p>
+<p><code>reverse</code> - if true, integrate in reverse. </p>
+<p><code>Emin,Emax</code> - initial <code>E</code> interval to search. this will be expanded automatically
+ (up to <code>±Elim</code>) until the range includes all requested eigenvalues.</p>
+<p>returns <code>ev,ef</code>, the requested eigenvalue <script type="math/tex">\epsilon</script> and the eigenfunction <script type="math/tex">u(r)</script>
+</p>
+<p>e.g. <em>hydrogen atom 1s orbital</em></p>
+<div class="codehilite"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">r</span>
+<span class="n">ev</span><span class="p">,</span><span class="n">ef</span> <span class="o">=</span> <span class="n">radschrod1</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L49">Element/src/radschrod.jl:49</a></p>
+<hr />
+<p><a id="method__realsphharm.1" class="lexicon_definition"></a></p>
+<h4 id="realsphharmlint64-mint64-real-real">realsphharm(l::Int64,  m::Int64,  θ::Real,  ϕ::Real) <a href="#method__realsphharm.1">¶</a></h4>
+<p><code>realsphharm(l,m,θ,ϕ)</code></p>
+<p>computes the real spherical harmonic function</p>
+<p>
+<script type="math/tex"> Y_{lm} = {i \over \sqrt{2}} \left(Y_l^m - (-1)^m Y_l^{-m}\right), \quad m<0 </script>
+</p>
+<p>
+<script type="math/tex"> Y_{lm} = Y_l^m, \quad m=0 </script>
+</p>
+<p>
+<script type="math/tex"> Y_{lm} = {1 \over \sqrt{2}} \left(Y_l^{-m} + (-1)^m Y_l^m\right), \quad m>0 </script>
+</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/sphharm.jl#L48">Element/src/sphharm.jl:48</a></p>
+<hr />
+<p><a id="method__sphharm.1" class="lexicon_definition"></a></p>
+<h4 id="sphharmlint64-mint64-real-real">sphharm(l::Int64,  m::Int64,  θ::Real,  ϕ::Real) <a href="#method__sphharm.1">¶</a></h4>
+<p><code>sphharm(l,m,θ,ϕ)</code></p>
+<p>computes the spherical harmonic function (standard definition used in quantum mechanics)</p>
+<p>
+<script type="math/tex"> Y_l^m(\theta,\phi) = (-1)^m \sqrt{{2l+1 \over 4\pi} {(l-m)!\over (l+m)!}} P_l^m(cos \theta) e^{im\phi} </script>
+</p>
+<p>which are normalized such that </p>
+<p>
+<script type="math/tex"> \int Y_l^m(\theta,\phi)^* Y_{l'}^{m'}(\theta,\phi) d\Omega = \delta_{ll'} \delta_{mm'} </script>
+</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/sphharm.jl#L32">Element/src/sphharm.jl:32</a></p>
+<hr />
+<p><a id="method__splineradial.1" class="lexicon_definition"></a></p>
+<h4 id="splineradialatelementatom">splineradial!(at::Element.Atom) <a href="#method__splineradial.1">¶</a></h4>
+<p><code>splineradial!(at; npts=100)</code></p>
+<p>splines the electronic density <code>rho</code>, hartree potential <code>vh</code>,
+and Kohn-Sham potential <code>vs</code> and creates radial functions.
+Additionally, the Coulomb potential <code>v</code> is created.</p>
+<p>assumes the <code>rho</code>, <code>vh</code> and <code>vs</code> have been calculated and are
+given in <code>at</code> discretized on the radial grid <code>r</code>.</p>
+<p><em>sets</em></p>
+<p><code>at[:v]</code> (see <code>CoulombPotential</code>)</p>
+<p><code>at[:rho]</code>, <code>at[:vh]</code>, <code>at[:vs]</code> (see <code>RadialFunc</code>).</p>
+<p><code>npts</code> - the number of evenly distributed spline points to use</p>
+<p>e.g.</p>
+<div class="codehilite"><pre><span class="n">at</span> <span class="o">=</span> <span class="n">dft</span><span class="p">(</span><span class="n">Z</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="n">splineradial!</span><span class="p">(</span><span class="n">at</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">at</span><span class="p">[:</span><span class="n">rho</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;rho&quot;</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">at</span><span class="p">[:</span><span class="n">vh</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;vh&quot;</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">at</span><span class="p">[:</span><span class="n">vs</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;vs&quot;</span><span class="p">)</span>
+<span class="n">ylims!</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/atom.jl#L170">Element/src/atom.jl:170</a></p>
+<hr />
+<p><a id="type__coulombpotential.1" class="lexicon_definition"></a></p>
+<h4 id="elementcoulombpotential">Element.CoulombPotential <a href="#type__coulombpotential.1">¶</a></h4>
+<p><code>CoulombPotential(Z;R=(0.,0.,0.))</code></p>
+<p>represents the Coulomb potential <script type="math/tex">v(r) = -Z/|r-R|</script>
+</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/coulomb.jl#L8">Element/src/coulomb.jl:8</a></p>
+<hr />
+<p><a id="type__ldaxc.1" class="lexicon_definition"></a></p>
+<h4 id="elementldaxc">Element.ldaxc <a href="#type__ldaxc.1">¶</a></h4>
+<p><code>ldaxc</code> is the pw-lda exchange-correlation functional [1,2].</p>
+<p>calls the functionals <code>XC_LDA_X</code>, <code>XC_LDA_C_PW_MOD</code> in <code>libxc</code>.</p>
+<p>spin-polarized and spin-unpolarized versions 
+can be created via <code>ldaxcpol()</code> and <code>ldaxcunpol()</code></p>
+<p>e.g.</p>
+<div class="codehilite"><pre><span class="n">xc</span> <span class="o">=</span> <span class="n">ldaxcunpol</span><span class="p">()</span>
+
+<span class="n">vx</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># exchange potential</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># exchange energy density</span>
+<span class="n">vc</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># correlation potential</span>
+<span class="n">ec</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># correlation energy density</span>
+
+<span class="c"># in-place versions</span>
+<span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vx</span><span class="p">)</span>
+<span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
+<span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vc</span><span class="p">)</span>
+<span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ec</span><span class="p">)</span>
+
+<span class="c"># more efficient to compute both together</span>
+<span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ex</span><span class="p">,</span><span class="n">vx</span><span class="p">)</span>
+<span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ec</span><span class="p">,</span><span class="n">vc</span><span class="p">)</span>
+
+<span class="c"># compute all components</span>
+<span class="n">xc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ex</span><span class="p">,</span><span class="n">vx</span><span class="p">,</span><span class="n">ec</span><span class="p">,</span><span class="n">vc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>[1] J. P. Perdew and Y. Wang. Accurate and simple analytic representation 
+of the electron-gas correlation energy. Phys. Rev. B, 45:13244–13249, 1992.</p>
+<p>[2] D. M. Ceperley and B. J. Alder. Ground state of the electron gas by 
+a stochastic method. Phys. Rev. Lett., 45:566–569, 1980.</p>
+<p><em>source:</em>
+<a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/xc.jl#L177">Element/src/xc.jl:177</a></p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
