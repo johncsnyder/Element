@@ -209,10 +209,9 @@ form <script type="math/tex">q Y_{lm}(\theta,\phi)/r^{l+1}</script> is used, whe
 <p>f = MultipoleFunc(u; l=0, m=0, R=(0.,0.,0.), rcut=Inf, rmax=Inf, q=0.)</p>
 <p><code>u</code> - a user-defined radial function</p>
 <p>e.g.</p>
-<div class="codehilite"><pre>u = r -&gt; exp(-r^2)
+<pre><code>u = r -&gt; exp(-r^2)
 u = Spline1D(r, exp(-r.^2))
-</pre></div>
-
+</code></pre>
 
 <p><code>l</code>,<code>m</code> - angular quantum numbers</p>
 <p><code>R</code> - origin of spherical coordinate system</p>
@@ -250,12 +249,11 @@ the derivatives of <code>f</code> and <code>g</code> match.</p>
 <p>analytic continuation as <script type="math/tex">r\to\infty</script> can be acheived by reversing
 <code>r</code> and <code>f</code>.</p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mf">4.</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">n</span><span class="p">,</span><span class="n">l</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">ev</span><span class="p">,</span><span class="n">ef</span> <span class="o">=</span> <span class="n">radschrod1</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
-<span class="n">efc</span> <span class="o">=</span> <span class="n">analytic_continuation</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">ef</span><span class="p">,</span><span class="n">r</span> <span class="o">-&gt;</span> <span class="n">r</span><span class="o">.^</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-
+<pre><code class="julia">r = loggrid(-12,4.,1000)
+n,l = 3,1
+ev,ef = radschrod1(r,-1./r,n,l,reverse=true)
+efc = analytic_continuation(r,ef,r -&gt; r.^(l+1))
+</code></pre>
 
 <p><em>source:</em>
 <a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L180">Element/src/radschrod.jl:180</a></p>
@@ -306,12 +304,11 @@ for a given value of <code>E</code>.</p>
 eigenfunction given by <code>v[:,j]</code>), and <code>q</code> are the respective number of nodes in
 the eigenfunctions.</p>
 <p>e.g. <em>particle in a box</em></p>
-<div class="codehilite"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">lingrid</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">evs</span><span class="p">,</span><span class="n">efs</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">E</span> <span class="o">-&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">E</span><span class="o">-</span><span class="n">v</span><span class="p">),</span><span class="n">dx</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
+<pre><code class="julia">x = lingrid(0,1,100)
+dx = x[2]-x[1]
+v = zeros(x)
+evs,efs,q = eig(E -&gt; 2*(E-v),dx,0,4)
+</code></pre>
 
 <p><em>source:</em>
 <a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/eig.jl#L146">Element/src/eig.jl:146</a></p>
@@ -340,10 +337,9 @@ with <code>fmin</code>, <code>fmax</code></p>
 intervals <script type="math/tex">[(x_{l,1},x_{r,1}),(x_{l,2},x_{r,2}),\dots]</script>
 within the specificed range <code>(xl,xr)</code> which contains exactly one step.</p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">round</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
-<span class="n">findsteps</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-</pre></div>
-
+<pre><code class="julia">f = (x,c) -&gt; round(Int,x^2+c)
+findsteps(f,0.0,2.0,args=1.0)
+</code></pre>
 
 <p><em>source:</em>
 <a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/findsteps.jl#L69">Element/src/findsteps.jl:69</a></p>
@@ -485,17 +481,16 @@ each integral</p>
 <p><code>rho</code> (AbstractVector) - radial density <script type="math/tex">\rho_{lm}(r)</script> evaluated on <code>r</code> </p>
 <p><code>l</code> (Int) - l-quantum number</p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">rho</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="n">r</span><span class="p">)</span>
-<span class="n">vh</span> <span class="o">=</span> <span class="n">radpoisson</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">multipolemoment</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">vh</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="o">./</span><span class="n">r</span><span class="o">.^</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>  <span class="c"># asymptotic form of hartree potential</span>
-<span class="n">xlims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ylims!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)</span>
-</pre></div>
-
+<pre><code class="julia">l = 0
+r = loggrid(-13,5,100)
+rho = exp(-2r)
+vh = radpoisson(r,rho,l)
+q = multipolemoment(r,rho,l)
+plot(r,vh)
+plot!(r,q./r.^(l+1))  # asymptotic form of hartree potential
+xlims!(0,10)
+ylims!(0,0.3)
+</code></pre>
 
 <p>[<code>V. Blum et al., CPC 180 (2009)</code> p. 2185-2186]</p>
 <p><em>source:</em>
@@ -520,12 +515,11 @@ each integral</p>
 <p>returns <code>evs,efs,q</code>, the requested eigenvalues, eigenfunctions and a list of 
 the corresponding quantum numbers <code>n,l</code></p>
 <p>e.g. <em>hydrogenic atom, Z=1</em></p>
-<div class="codehilite"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">r</span>
-<span class="n">nmax</span><span class="p">,</span><span class="n">lmax</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
-<span class="n">evs</span><span class="p">,</span><span class="n">efs</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">radschrod</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">nmax</span><span class="p">,</span><span class="n">lmax</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
-</pre></div>
-
+<pre><code class="julia">r = loggrid(-12,5,1000)
+v = -1./r
+nmax,lmax = 3,2
+evs,efs,q = radschrod(r,v,nmax,lmax,reverse=true)
+</code></pre>
 
 <p><em>source:</em>
 <a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L113">Element/src/radschrod.jl:113</a></p>
@@ -549,11 +543,10 @@ the corresponding quantum numbers <code>n,l</code></p>
 <p>returns <code>ev,ef</code>, the requested eigenvalue <script type="math/tex">\epsilon</script> and the eigenfunction <script type="math/tex">u(r)</script>
 </p>
 <p>e.g. <em>hydrogen atom 1s orbital</em></p>
-<div class="codehilite"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">loggrid</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">r</span>
-<span class="n">ev</span><span class="p">,</span><span class="n">ef</span> <span class="o">=</span> <span class="n">radschrod1</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
-</pre></div>
-
+<pre><code class="julia">r = loggrid(-12,4,500)
+v = -1./r
+ev,ef = radschrod1(r,v,1,0,reverse=true)
+</code></pre>
 
 <p><em>source:</em>
 <a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/radschrod.jl#L49">Element/src/radschrod.jl:49</a></p>
@@ -601,14 +594,13 @@ given in <code>at</code> discretized on the radial grid <code>r</code>.</p>
 <p><code>at[:rho]</code>, <code>at[:vh]</code>, <code>at[:vs]</code> (see <code>RadialFunc</code>).</p>
 <p><code>npts</code> - the number of evenly distributed spline points to use</p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span class="n">at</span> <span class="o">=</span> <span class="n">dft</span><span class="p">(</span><span class="n">Z</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
-<span class="n">splineradial!</span><span class="p">(</span><span class="n">at</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">at</span><span class="p">[:</span><span class="n">rho</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;rho&quot;</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">at</span><span class="p">[:</span><span class="n">vh</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;vh&quot;</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">at</span><span class="p">[:</span><span class="n">vs</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;vs&quot;</span><span class="p">)</span>
-<span class="n">ylims!</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
+<pre><code class="julia">at = dft(Z=1.)
+splineradial!(at)
+plot(at[:rho].u,0,5,label=&quot;rho&quot;)
+plot!(at[:vh].u,0,5,label=&quot;vh&quot;)
+plot!(at[:vs].u,0,5,label=&quot;vs&quot;)
+ylims!(-2,1)
+</code></pre>
 
 <p><em>source:</em>
 <a href="https://github.com/johncsnyder/Element/tree/b7e909ca09011e9748194d62f53cb6039446f1f9/src/atom.jl#L170">Element/src/atom.jl:170</a></p>
@@ -628,27 +620,26 @@ given in <code>at</code> discretized on the radial grid <code>r</code>.</p>
 <p>spin-polarized and spin-unpolarized versions 
 can be created via <code>ldaxcpol()</code> and <code>ldaxcunpol()</code></p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span class="n">xc</span> <span class="o">=</span> <span class="n">ldaxcunpol</span><span class="p">()</span>
+<pre><code class="julia">xc = ldaxcunpol()
 
-<span class="n">vx</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># exchange potential</span>
-<span class="n">ex</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># exchange energy density</span>
-<span class="n">vc</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># correlation potential</span>
-<span class="n">ec</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>  <span class="c"># correlation energy density</span>
+vx = xc.x.v(rho)  # exchange potential
+ex = xc.x.e(rho)  # exchange energy density
+vc = xc.c.v(rho)  # correlation potential
+ec = xc.c.e(rho)  # correlation energy density
 
-<span class="c"># in-place versions</span>
-<span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vx</span><span class="p">)</span>
-<span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span>
-<span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vc</span><span class="p">)</span>
-<span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ec</span><span class="p">)</span>
+# in-place versions
+xc.x.v(rho,vx)
+xc.x.e(rho,ex)
+xc.c.v(rho,vc)
+xc.c.e(rho,ec)
 
-<span class="c"># more efficient to compute both together</span>
-<span class="n">xc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ex</span><span class="p">,</span><span class="n">vx</span><span class="p">)</span>
-<span class="n">xc</span><span class="o">.</span><span class="n">c</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ec</span><span class="p">,</span><span class="n">vc</span><span class="p">)</span>
+# more efficient to compute both together
+xc.x(rho,ex,vx)
+xc.c(rho,ec,vc)
 
-<span class="c"># compute all components</span>
-<span class="n">xc</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">ex</span><span class="p">,</span><span class="n">vx</span><span class="p">,</span><span class="n">ec</span><span class="p">,</span><span class="n">vc</span><span class="p">)</span>
-</pre></div>
-
+# compute all components
+xc(rho,ex,vx,ec,vc)
+</code></pre>
 
 <p>[1] J. P. Perdew and Y. Wang. Accurate and simple analytic representation 
 of the electron-gas correlation energy. Phys. Rev. B, 45:13244–13249, 1992.</p>
