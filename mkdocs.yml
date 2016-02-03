@@ -18,9 +18,6 @@ extra_javascript: ['http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-
 markdown_extensions: 
     - math:
         enable_dollar_delimiter: True #for use of inline $..$
-    - fenced_code
-    - codehilite
-    - footnotes
 
 # theme: readthedocs
-
+theme: mkdocs
