@@ -1,0 +1,26 @@
+site_name: Element
+
+site_name: Element.jl
+
+site_description: Electronic structure code in Julia
+
+repo_url: https://github.com/johncsnyder/Element.jl
+
+pages:
+- [index.md, Index]
+- [Element.md, Element]
+
+
+extra_javascript: ['http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML']
+
+# markdown_extensions: [math]
+
+markdown_extensions: 
+    - math:
+        enable_dollar_delimiter: True #for use of inline $..$
+    - fenced_code
+    - codehilite
+    - footnotes
+
+# theme: readthedocs
+
