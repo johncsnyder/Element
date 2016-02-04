@@ -49,7 +49,10 @@ include("rotation.jl")
 
 
 function __init__()
-	global lebedev = open(joinpath(Pkg.dir("Element"), "deps/lebedev.jls")) do io deserialize(io) end
+	filename = joinpath(Pkg.dir("Element"), "deps/lebedev.jls")
+	if isfile(filename)
+		global lebedev = open(filename) do io deserialize(io) end
+	end
 end
 
 end  # module Element
