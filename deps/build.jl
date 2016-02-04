@@ -1,5 +1,16 @@
 
 
+
+using Element: generate_lebedev
+
+# generate lebedev angular grids
+generate_lebedev()
+
+
+
+
+
+
 using BinDeps
 using Compat
 
@@ -36,13 +47,6 @@ provides(
 @compat @BinDeps.install Dict(:libxc => :libxc)
 
 
-
-
-
-using Element: generate_lebedev
-
-# generate lebedev angular grids
-generate_lebedev()
 
 
 

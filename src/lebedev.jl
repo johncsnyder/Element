@@ -229,7 +229,7 @@ function generate_lebedev()
 
     lebedev = Dict{Int,AngularGridf}([k=>lebgrid(k) for k in keys(leb)])
 
-    open("../deps/lebedev.jls", "w") do io serialize(io, lebedev) end
+    open(joinpath(Pkg.dir("Element"), "deps/lebedev.jls"), "w") do io serialize(io, lebedev) end
 
 end
 
