@@ -221,7 +221,7 @@ function generate_lebedev()
 
     function lebgrid(n::Integer)
         data = leb[n]()'
-        w = 4pi*data[end,:]
+        w = vec(4pi*data[end,:])
         p = data[1:3,:]
         p = Point3{Float64}[tuple(p[:,i]...) for i in 1:size(p,2)]
         AngularGrid(p,w)
