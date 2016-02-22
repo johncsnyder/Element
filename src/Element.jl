@@ -1,12 +1,21 @@
-__precompile__()
+VERSION >= v"0.4.0-dev+6521" && __precompile__()
 
 module Element
+using Compat
 
 export Atom, Molecule, dft, dft!, lingrid, loggrid, lebgrid, atomicradgrid, atomicgrid,
 	AtomicGrid, AtomicRadialGrid, AngularGrid, makebasis!, makegrid!, eachatom, NAO, 
 	MultipoleFunc, MultipoleFuncSpl, RadialFunc, MultipoleBasis, integrate, ∫, grad, ∇, 
 	mat, expandmultipole, Point3, Point3f, Point2, dist, randp, rotmat, randrotmat, 
 	rotate!, setposition, simple_logger, bondslice, print_stats
+
+# Load libxc from BinDeps
+const depfile = joinpath(dirname(@__FILE__), "..", "deps", "deps.jl")
+if isfile(depfile)
+    include(depfile)
+else
+    error("libxc not properly installed. Please run Pkg.build(\"Element\")")
+end
 
 include("base.jl")
 include("multistep.jl")
