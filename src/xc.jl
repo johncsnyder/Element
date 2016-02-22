@@ -69,16 +69,16 @@ type XC
     
     function XC(id::Int, spin::Int)
         __xc__ = Ref{xc_func_type}()
-        ccall((:xc_func_init,:libxc), Void, (Ref{xc_func_type}, Cint, Cint), __xc__, id, spin)
+        ccall((:xc_func_init,libxc), Void, (Ref{xc_func_type}, Cint, Cint), __xc__, id, spin)
         xc = new(__xc__)
-        finalizer(xc, xc -> ccall((:xc_func_end,:libxc), Void, (Ref{xc_func_type},), xc.__xc__))
+        finalizer(xc, xc -> ccall((:xc_func_end,libxc), Void, (Ref{xc_func_type},), xc.__xc__))
         xc
     end
 end
 
 function lda_pot!(xc::XC, rho::AbstractArray{Float64}, v::AbstractArray{Float64})
     @assert length(rho) == length(v)
-    ccall((:xc_lda_vxc,:libxc), Void,
+    ccall((:xc_lda_vxc,libxc), Void,
         (Ref{xc_func_type}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), 
         xc.__xc__, length(rho), rho, v)
 end
@@ -91,7 +91,7 @@ end
 
 function lda_en_density!(xc::XC, rho::AbstractArray{Float64}, ε::AbstractArray{Float64})
     @assert length(rho) == length(ε)
-    ccall((:xc_lda_exc,:libxc), Void, 
+    ccall((:xc_lda_exc,libxc), Void, 
     	(Ref{xc_func_type}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), 
     	xc.__xc__, length(rho), rho, ε)
 end
@@ -105,7 +105,7 @@ end
 function lda_en_density_pot!(xc::XC, rho::AbstractArray{Float64}, 
 		ε::AbstractArray{Float64}, v::AbstractArray{Float64})
     @assert length(rho) == length(ε) == length(v)
-    ccall((:xc_lda_exc_vxc,:libxc), Void, (Ref{xc_func_type}, Cint, Ptr{Cdouble}, 
+    ccall((:xc_lda_exc_vxc,libxc), Void, (Ref{xc_func_type}, Cint, Ptr{Cdouble}, 
     	Ptr{Cdouble}, Ptr{Cdouble}), xc.__xc__, length(rho), rho, ε, v)
 end
 
